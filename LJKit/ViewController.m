@@ -30,6 +30,13 @@
 //    str = [str lj_replaceInRange:NSMakeRange(2, 3) withString:@"*#"];
     str = [NSString lj_replacedOfString:str range:NSMakeRange(2, 3) withString:@"*#"];
     NSLog(@"%@", str);
+    
+    NSString * str1 = @"你是我的小苹果<help>17700000000</help>";
+    str1 = [str1 filterHTML];
+    NSLog(@"%@", str1);
+    
+    NSString * str2 = [NSString filterHTML:@"你是我的小坏蛋<help>13800000000</help>"];
+    NSLog(@"%@", str2);
 }
 
 @end

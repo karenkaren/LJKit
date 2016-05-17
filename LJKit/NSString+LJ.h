@@ -45,5 +45,8 @@
 #pragma mark -- 用特定字符替换字符串
 + (NSString *)lj_replacedOfString:(NSString *)string range:(NSRange)range withString:(NSString *)replacement;
 - (NSString *)lj_replaceInRange:(NSRange)range withString:(NSString *)replacement;
+#pragma mark -- 过滤字符串中的的html标签 
++ (NSString *)filterHTML:(NSString *)html;
+- (NSString *)filterHTML;
 
 @end

@@ -179,4 +179,28 @@
     return mStr;
 }
 
+#pragma mark 过滤字符串中的的html标签
++ (NSString *)filterHTML:(NSString *)html
+{
+    return [html filterHTML];
+    
+}
+
+- (NSString *)filterHTML
+{
+    NSString * html = self;
+    NSScanner * scanner = [NSScanner scannerWithString:html];
+    NSString * text = nil;
+    while([scanner isAtEnd] == NO)
+    {
+        //找到标签的起始位置
+        [scanner scanUpToString:@"<" intoString:nil];
+        //找到标签的结束位置
+        [scanner scanUpToString:@">" intoString:&text];
+        //替换字符
+        html = [html stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@>",text] withString:@""];
+    }
+    return html;
+}
+
 @end
